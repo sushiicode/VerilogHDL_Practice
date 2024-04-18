@@ -2,7 +2,7 @@
 /* Equations are:
 s= a xor b xor c
 c= a and b or b and cin or cin and a
-
+*/
 
 
 module FA_bh_1 (s,c, a,b,cin);
