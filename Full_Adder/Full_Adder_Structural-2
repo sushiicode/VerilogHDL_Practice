@@ -1,3 +1,5 @@
+Full_Adder: Structural Style-2
+
 // here we use already pre existing Half adder’s in the standard cell library and make a Full adder using two half adder
 
 module FA_st2 (s,c,a,b,cin);
