@@ -1,12 +1,11 @@
-// here we use already pre existing Half adder’s in the standard cell library and make a Full adder 
-
+// here we use already pre existing Half adder’s in the standard cell library and make a Full adder using two half adder
 
 module FA_st2 (s,c,a,b,cin);
-input a,c,cin;
+input a,c,cin;  // declaration starts here
 output s,c;
 wire N1,N2,N3;
 
-HA_df HA_df1 (N1,N2,a,b);
+HA_df HA_df1 (N1,N2,a,b);  //Functional Blocks start here
 HA_df HA_df2 (S,N3,N1,cin);
 or or1 (c,N2,N3);
 
