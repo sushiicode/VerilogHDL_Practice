@@ -1,0 +1,13 @@
+// Here in this type, we will give local names to the logic gate variables (I/P, O/P) and then connect them with the variable names given in the standard cell library
+
+
+module FA_st3 (ss,cc,aa,bb,cin);
+input aa, bb,cin;
+output ss, cc;
+wire N1,N2,N3;
+
+HA_df HA_df1 (.s(N1), .c(N2), .a(aa), .b(bb));
+HA_df HA_df2 (.s(ss), .c(N3), .a(N1), .b(cin));
+or or1	(cc,N3,N2);
+
+endmodule
