@@ -1,0 +1,19 @@
+// Behavorial style
+/* Equations are:
+s= a xor b xor c
+c= a and b or b and cin or cin and a
+
+
+
+module FA_bh_1 (s,c, a,b,cin);
+input a,b,cin;
+output reg s,c;
+
+always @ (*)
+
+begin
+	s= a ^ b ^ cin; 
+	c= a & b | cin & b | Cin & a;
+end 
+
+endmodule
