@@ -1,0 +1,65 @@
+Test Bench: Full adder
+
+here, we initially consider the behavioural program for full adder
+
+// Behavorial style
+
+/* Equations are:
+s= a xor b xor c
+c= a and b or b and cin or cin and a
+*/
+
+
+module FA_bh_1 (s,c, a,b,cin);
+input a,b,cin;
+output reg s,c;
+
+always @ (*)
+
+begin
+	s= a ^ b ^ cin; 
+	c= a & b | cin & b | Cin & a;
+end 
+
+endmodule
+
+
+// Test Bench for Full adder.
+
+Note:
+1. Here, FA_bh.v is the file that contains the program (Design for full adder)
+FA_bh_tb.v is the file that holds the code for the full adder test bench.
+
+2. Always, FA_bh.v file name means that the module name is also FA_bh; and when we execute FA_bh_tb.v automatically it will compile FA_bh.v file
+3. Initial block always executes only one time and also is not synthesizable.
+4. It has no inputs and outputs
+
+
+code:
+
+
+
+`timescale= 1ns / 100ps // timescale is the keyword for informing the software the time. here 1ns is the base value and 100ps is the precision value
+module FA_bh_tb; 
+reg a,b,cin;
+wire s,c;
+
+FA_bh FA1(s,c,a,b,cin)  ;  // Here, we are going to instantiate the FA_bh to this test bench, where FA1 is simply an  instance name
+initial // runs only one time and also cannot synthesize
+begin
+$monitor (“$time=%d,a=%b,b=%b,cin=%b,s= %b, c= %b”, $time,a,b,cin,s,c);    // It is like the print statement, but in this case, it’s going to monitor if the signal changes (input as well as output)
+a=0; 		// {a,b,cin}={0,0,0} Here we are going to initialize initial values of a (at time =0) as 0 
+b=0; 		// Here we are going to initialize initial values of b (at time =0) as 0 
+cin=0; 	// Here we are going to initialize initial values of c (at time =0) as 0 
+
+#10 a= 1; after 10 time units, ie, 10ns , we have the values {a,b,cin}={1,0,0}
+#10 b= 1; after 10 time units, ie, 20ns , we have the values {a,b,cin}={1,1,0}
+#10 cin= 1; after 10 time units,ie, 30ns we have the values {a,b,cin}={1,1,1}
+#10 $stop // here $stop refers to the stopping of the simulation and $finish means terminating the simulation as whole. $stop allows the output to be displayed
+
+end
+endmodule
+
+
+
+
