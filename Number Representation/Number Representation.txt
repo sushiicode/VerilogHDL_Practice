@@ -1,1 +1,12 @@
+Number Representation
+
+Numbers can be represented by:
+1. Binary
+2. Hexadecimal
+3. Decimal
+4. Octal
+
+// By default, all values that are defined are binary (as computer machine only understands binary.
+// defined as 32 bit binary
+
 
