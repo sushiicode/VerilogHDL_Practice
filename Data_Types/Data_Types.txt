@@ -1,1 +1,13 @@
+Data Types in verilog
 
+1. wire
+2. reg
+
+I. Here, wire is default data type for input and output declaration.
+for example, input a,b,cin; ----> this means that a,b,cin are wire by default.
+
+also, wire is usually mentioned when in case of structural program
+
+II. reg is used only in case of output. 
+
+output reg s,c;  ----> here, s,c will hold a value that keeps on changing within the program (usually when it is within the always block).
