@@ -7,6 +7,13 @@ Numbers can be represented by:
 4. Octal
 
 // By default, all values that are defined are binary (as computer machine only understands binary.
-// defined as 32 bit binary
+// defined as 32 bit binary, where 32 bit is the default size.
 
+Format for representing number:
 
+<size> <type> <number>
+
+For example;
+
+2'b 00
+10'd 8
