@@ -44,7 +44,7 @@ module FA_bh_tb;
 reg a,b,cin;
 wire s,c;
 
-FA_bh FA1(s,c,a,b,cin)  ;  // Here, we are going to instantiate the FA_bh to this test bench, where FA1 is simply an  instance name
+FA_bh FA1_DUT(s,c,a,b,cin)  ;  // Here, we are going to instantiate the FA_bh to this test bench, where FA1_DUT is simply an  instance name, DUT= device under test
 initial // runs only one time and also cannot synthesize
 begin
 $monitor (“$time=%d,a=%b,b=%b,cin=%b,s= %b, c= %b”, $time,a,b,cin,s,c);    // It is like the print statement, but in this case, it’s going to monitor if the signal changes (input as well as output)
