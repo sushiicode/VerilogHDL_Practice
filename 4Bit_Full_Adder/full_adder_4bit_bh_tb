@@ -1,0 +1,49 @@
+Consider this program for Full adder- Behavioral:
+
+
+module full_adder_4bit_bh (s,cout,a,b,cin);
+
+input [3:0]a,b;
+input cin;
+output reg [3:0] s;
+output reg cout; 
+
+
+always @ (a,b,cin)
+begin
+{cout,s} = a + b + cin;
+end
+endmodule
+
+
+
+Test Bench:
+
+
+module full_adder_4bit_bh_tb;
+wire [3:0]s;
+wire cout;
+reg [3:0] a,b;
+reg cin;
+
+full_adder_4bit_bh FA4_DUT (s,cout,a,b,cin);
+
+initial 
+
+$monitor(“ Time=%d /t a=%b /t b=%b /t cin=%b /t s=%b /t cout=%b “, $time, a,b,cin,s, cout);
+
+initial begin
+a=0;
+b=0;
+cin=0;
+repeat(16) begin 					//2^4 - 16 different values can be taken by a and b (since they’re 4 bit each)
+	#10 a=a+1;							//a gets updated to 0001. for every value of a, 16 values of b and for every value of b, 2 values of cin are taken. and vice versa
+	repeat(16) begin
+		#10 b=b+1;
+		repeat(2)							//cin takes 2 values (0 or 1)
+			#10 cin=~cin;				//Not operator
+	end 										//repeat(16)
+end											//repeat(16)
+end
+endmodule
+
