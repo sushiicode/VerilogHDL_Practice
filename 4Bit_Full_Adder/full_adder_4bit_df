@@ -1,0 +1,16 @@
+**********************************
+4 Bit full adder- data flow model
+**********************************
+
+
+module full_adder_4bit_df (s,cout,a,b,cin);
+
+input [3:0]a,b;
+output [3:0] s;
+input cin;
+output cout; 
+
+assign {cout,s} = a + b + cin;
+
+endmodule
+
