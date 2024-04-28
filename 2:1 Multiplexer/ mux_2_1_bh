@@ -1,0 +1,17 @@
+*********************************************
+2:1 Multiplexer (Behavioral)
+*********************************************
+
+
+module mux_2_1_bh (y,i,s);
+input [1:0] i;
+input s;
+output reg y;
+
+always @(*)
+	if (s)
+		y= i[1];
+	else
+		y= i[0];
+
+endmodule
