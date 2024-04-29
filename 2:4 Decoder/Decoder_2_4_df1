@@ -1,0 +1,26 @@
+*****************************************************************
+2:4 Decoder Dataflow Program
+*****************************************************************
+
+
+
+module decoder_2_4_df1 (y,i, En);
+input [1:0] i;
+input En;
+output [3:0] y;
+
+assign y= {En & ~i[0] & ~i[1], En & ~i[0] & i[1], En & i[0] & ~i[1], En & i[0] & i[1]};
+
+endmodule
+
+
+
+
+Equations:
+
+
+y= En * ~i[0] * ~i[1]
+y= En * ~i[0] * ~i[1]
+y= En * ~i[0] * ~i[1]
+y= En * ~i[0] * ~i[1]
+y= En * X * X = 0		// If En is 0, then circuit is deactivated. X is Dont care.
