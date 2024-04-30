@@ -1,0 +1,18 @@
+**************************************************
+4-bit COMPARATOR BEHAVIORAL
+**************************************************
+
+
+module comparator_4_bh (eq,gt,sm,a,b);
+
+input [3:0] a, b;
+output reg eq, gt, sm;
+
+always@(*) begin
+
+		eq= (a==b);	//a=b
+		gt= (a>b);	//a>b
+		sm= (a<b);	//a<b
+
+end 
+endmodule
