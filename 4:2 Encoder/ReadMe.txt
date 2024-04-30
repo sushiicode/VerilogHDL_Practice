@@ -10,3 +10,7 @@ Y3	Y2	Y1	Y0	A1	A0
 
 A1=Y1+Y0
 A0=Y0+Y2
+
+
+Valid (V) is high if at all, the sum of the input bits = 1 
+for example, 0001 = sum(0001)= 1 . therefore, V= High (1)
