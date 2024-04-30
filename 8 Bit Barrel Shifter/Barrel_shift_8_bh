@@ -1,0 +1,22 @@
+********************************************************
+8 Bit comparator behavioral model
+********************************************************
+
+
+
+module barrel_shift_8_bh (out,in,Lr,n);
+
+input [7:0] in;
+output [7:0] out;
+input Lr;
+input [2:0] n; 		//2^n = 8; which means if n = 3 bits value then we can have about 0-7 shifts in total
+
+always@(*) begin
+
+if (Lr)
+	out = in << n;		
+else
+	out = in >> n;
+	
+end 
+endmodule
