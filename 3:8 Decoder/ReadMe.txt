@@ -4,5 +4,13 @@ In this section, let us implement 3 to 8 decoder.
 
 Boolean expressions:
 
-y[1] = i[0] | i[1];
-y[0] = i[0] | i[2];
+En & ~i[2] & ~i[1] & ~i[0],
+En & ~i[2] & ~i[1] & i[0], 
+En & ~i[2] & i[1] & ~i[0],
+En & ~i[2] & i[1] & i[0], 
+En & i[2] & ~i[1] & ~i[0],
+En & i[2] & ~i[1] & i[0], 
+En & i[2] & i[1] & ~i[0], 
+En & i[2] & i[1] & i[0]
+
+
