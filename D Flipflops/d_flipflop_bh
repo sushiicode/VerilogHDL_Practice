@@ -1,0 +1,14 @@
+****************************************************
+D Flipflop behavioural model
+****************************************************
+
+
+module d_flipflop_bh (q,d,clk);
+input d, clk;
+output reg q;
+
+always@ (posedge clk)
+	if (clk)
+		q <=d;
+
+endmodule
