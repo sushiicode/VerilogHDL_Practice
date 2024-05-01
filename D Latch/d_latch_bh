@@ -1,0 +1,15 @@
+****************************************************************
+D Latch - Behavioral model
+****************************************************************
+
+
+module d_latch_bh (q,d,en);
+
+input d,en;
+output reg q;
+
+always@(d,en)
+	if (en)
+		q=d;
+
+endmodule
