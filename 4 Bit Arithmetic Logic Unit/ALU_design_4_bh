@@ -1,0 +1,36 @@
+****************************************************************
+4 Bit Arithmetic Login Unit- Behavioral model
+****************************************************************
+
+
+module ALU_design_4_bh (c,d, opcode,a,b);
+
+input [3:0] a,b;
+input [3:0] opcode;
+output reg [3:0] x;
+output reg [3:0] y;
+
+always@(a,b,opcode) begin
+case (opcode)
+
+4’b0000 : x[0] = |a ;		// First sets of x[0] to x[2] is unary or, and and xor 
+4’b0001 : x[0] = &a;
+4’b0010 : x[0] = ^a;
+4’b0011 : x = a & b;		// Next sets include logical and, or and xor between two input numbers a,b
+4’b0100 : x = a | b;
+4’b0101 : x = a ^ b;
+4’b0110 : x[0] = a > b;  // next comes relational operators, greater, less than, not equal to, equal to.   
+4’b0111 : x[0] = a < b;
+4’b1000 : x[0] = !a;
+4’b1001 : x[0] = a == b;
+4’b1010 : {y[0],x} = a + b;   // next set comes addition, sub, multiplication
+4’b1011 : x = a - b;
+4’b1100 : {y,x} = a * b;
+4’b1101 : {y,x} = a >> b;			
+4’b1110 : {y,x} = a << b;
+4’b1111 : x = ~a;
+default : $display(“Error occurred”);
+
+endcase
+end
+endmodule
