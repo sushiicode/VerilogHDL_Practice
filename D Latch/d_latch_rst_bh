@@ -1,6 +1,6 @@
 
 ****************************************************
-
+D Latch with asynchronous reset button
 ****************************************************
 
 
@@ -10,10 +10,8 @@ input rst, en, d;
 output reg q;
 
 always @ (rst,en,d) 
-
 	if (rst)
 		q = 1’b0;
 	else if (en)
 		q = d;
-
 endmodule
