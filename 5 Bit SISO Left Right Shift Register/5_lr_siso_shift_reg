@@ -1,0 +1,52 @@
+*******************************************************
+5-bit left-right shift register
+*******************************************************
+
+/* right shift logic 
+sr[4]sr[3]sr[2]sr[1]sr[0] */
+
+
+
+module 5_lr_siso_shift_reg (so,clk,rst,si);
+
+input si,rst,clk;
+output so;
+
+reg [4:0] sr;
+
+always @(posedge clk, negedge rst)
+
+if (!rst)
+	sr <= 5’b0; 
+else
+	sr <= {si, sr[4:1]};
+
+assign so = sr[0];
+
+endmodule
+
+
+
+
+/* left shift logic 
+sr[4]sr[3]sr[2]sr[1]sr[0] */
+
+
+
+module 5_lr_siso_shift_reg (so,clk,rst,si);
+
+input si,rst,clk;
+output so;
+
+reg [4:0] sr;
+
+always @(posedge clk, negedge rst)
+
+if (!rst)
+	sr <= 5’b0; 
+else
+	sr <= {sr[3:0],si};
+
+assign so = sr[4];
+
+endmodule
