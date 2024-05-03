@@ -1,0 +1,24 @@
+********************************************************
+8 Bit up-counter
+********************************************************
+
+
+module up_count_8bits_bh (count, clk, rst);
+
+input clk, rst;
+output [7:0]count;
+
+reg [7:0] count_reg;      // internal register
+
+
+always @ (posedge clk)
+	if (!rst)
+		count_reg <= 8’b0;
+	else 
+		count_reg <= count_reg + 1;
+
+assign count = count_reg;
+
+endmodule
+
+
