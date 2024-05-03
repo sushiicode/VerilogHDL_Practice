@@ -1,0 +1,28 @@
+****************************************************
+8 Bit up counter with load function
+****************************************************
+
+
+
+module 8_bit_up_counter_load_bh (count,clk,rst,data,load);
+
+input [7:0] data;
+input clk,rst,load;
+output reg [7:0] count;
+
+reg [7:0] count_reg;
+
+always@(posedge clk)
+
+ if (!rst)
+	count_reg <= 8’b0; 
+
+ else if(load)
+	count_reg <= data; 
+
+ else
+
+	count_reg <= count_reg + 1;
+
+end 
+endmodule
