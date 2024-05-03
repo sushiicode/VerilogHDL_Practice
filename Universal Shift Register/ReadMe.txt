@@ -9,6 +9,6 @@ The register operations performed for the various inputs of select lines are as 
 
 S1	s0	Register operation
 0	0	No changes
-0	1	Shift right
-1	0	Shift left
+0	1	Shift left
+1	0	Shift right
 1	1	Parallel load
