@@ -1,0 +1,27 @@
+********************************************************
+8 Bit up-counter Test Bench
+********************************************************
+
+
+module up_count_8bits_bh_tb;
+
+reg rst,clk;
+wire [7:0] count; 
+
+up_count_8bits_bh c0 (.clk(clk), .rst(rst), .count(count));
+
+always #5 clk= ~clk;
+
+initial begin
+rst = 1;
+clk = 0;
+
+# 10 rst = 0;
+# 20 rst = 1;
+#100 $stop;
+
+end
+
+endmodule
+
+
