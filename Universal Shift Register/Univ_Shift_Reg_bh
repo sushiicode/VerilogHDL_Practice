@@ -1,0 +1,32 @@
+************************************************
+Universal Shift Register
+************************************************
+
+
+module U_Shift_Reg_bh (PO,SO,clk, sel,rst, SI, PI);
+
+input [4:0] PI;
+input [1:0] sel;
+input clk, rst;
+input SI;
+output [4:0] PO;
+
+
+always @ (posedge clk) 		// synchronous behavior
+	if (rst)
+		PO <= 5’b0;
+	else begin
+		case (sel)
+
+			 2’b00 : PO <= PO;
+			 2’b01 : PO <= {PI[],SI};   // Left shift
+			 2’b10 : PO <= {SI, PI[]};  // Right Shift
+			 2’b11 :	PO <= PI;
+			 default: PO <= 0;
+
+endcase
+end 
+
+assign SO = (sel == 2’b01)? : PO[4] : PO[0];
+
+endmodule
