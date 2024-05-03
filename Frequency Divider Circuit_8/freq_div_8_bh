@@ -1,0 +1,39 @@
+********************************************************
+Frequency divider (F/8)
+********************************************************
+
+
+
+module freq_div_8_bh (clk_4, clk_2, clk_out, clk, rst);
+
+input clk,rst; 
+output reg clk_4, clk_out, clk_2;
+
+always @ (posedge clk) begin
+
+if (rst)
+	clk_4 <= 0; 
+else 
+	clk_4 <= ~ clk_4 ; 
+
+end 
+
+always @ (posedge clk) begin
+
+if (rst)
+	clk_2 <= 0; 
+else 
+	clk_2 <= ~ clk_2 ; 
+
+end 
+
+always @ (posedge clk) begin
+
+if (rst)
+	clk_out <= 0; 
+else 
+	clk_out <= ~ clk_out ;
+
+end 
+
+endmodule
