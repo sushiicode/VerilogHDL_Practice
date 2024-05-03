@@ -1,0 +1,34 @@
+********************************************************
+8 Bit up down counter
+********************************************************
+
+
+
+module 8_up_down_counter_bh (count,clk,ud, data,rst,load);
+
+input clk,rst,load,ud;
+input [7:0] data;
+output reg [7:0] count;
+reg [7:0] count_reg;
+
+always @(posedge clk)
+
+if (!rst)
+
+	count_reg <= 8’b0; 
+
+else if (load)
+
+	count_reg <= data;
+
+else if (ud)
+
+	count_reg <= count_reg + 1;
+
+else ()
+
+	count_reg <= count_reg - 1;
+
+assign count = count_reg;
+
+endmodule
