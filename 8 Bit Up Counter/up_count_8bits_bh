@@ -6,7 +6,7 @@
 module up_count_8bits_bh (count, clk, rst);
 
 input clk, rst;
-output [7:0]count;
+output reg [7:0] count;
 
 reg [7:0] count_reg;      // internal register
 
